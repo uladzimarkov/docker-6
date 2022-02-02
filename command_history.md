@@ -1,6 +1,6 @@
 root@u-45755:/home/user/Docker# docker run -d -p 127.0.0.1:8892:80 --name rbm-dkr-06-local --log-driver local --log-opt max-size=10m nginx:stable 
  
-root@u-45755:/home/user/Docker# docker ps 
+root@u-45755:/home/user/Docker# docker ps  
 CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS          PORTS                    NAMES 
 edcf49b57a8d   nginx:stable   "/docker-entrypoint.…"   10 minutes ago    Up 10 minutes   127.0.0.1:8892->80/tcp   rbm-dkr-06-local 
  
