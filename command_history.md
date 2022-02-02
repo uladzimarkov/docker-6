@@ -1,10 +1,12 @@
-root@u-45755:/home/user/Docker# docker run -d -p 127.0.0.1:8892:80 --name rbm-dkr-06-local --log-driver local --log-opt max-size=10m nginx:stable
-
+root@u-45755:/home/user/Docker# docker run -d -p 127.0.0.1:8892:80 --name rbm-dkr-06-local --log-driver local --log-opt max-size=10m nginx:stable 
+ 
 root@u-45755:/home/user/Docker# docker ps 
-CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS          PORTS                    NAMES
-edcf49b57a8d   nginx:stable   "/docker-entrypoint.…"   10 minutes ago    Up 10 minutes   127.0.0.1:8892->80/tcp   rbm-dkr-06-local
+CONTAINER ID   IMAGE          COMMAND                  CREATED         STATUS          PORTS                    NAMES 
+edcf49b57a8d   nginx:stable   "/docker-entrypoint.…"   10 minutes ago    Up 10 minutes   127.0.0.1:8892->80/tcp   rbm-dkr-06-local 
+ 
+root@u-45755:/home/user/Docker# curl --silent http://127.0.0.1:8892 > /dev/null 
 
-root@u-45755:/home/user/Docker# curl --silent http://127.0.0.1:8892 > /dev/null
+root@u-45755:/home/user/Docker# cat /var/lib/docker/containers/edcf49b57a8d60254ef16da9d19c54fce25a57cc980e08ce645639a6cb22c649/local-logs/container.log 
 ``
 stdout���������`/docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configurationt]
 stdout���������I/docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/]i
@@ -25,15 +27,15 @@ stderr���������92022/01/31 17:18:53 [notice] 1#1: start worker
 stderr毒������92022/01/31 17:18:53 [notice] 1#1: start worker process 33MM
 stderr䓶������92022/01/31 17:18:53 [notice] 1#1: start worker process 34Mn
 stdout�坫�����Z172.17.0.1 - - [31/Jan/2022:17:19:17 +0000] "GET / HTTP/1.1" 200 612 "-" "curl/7.68.0" "-"n` 
-``
-
-daemon json file [here](https://github.com/uladzimarkov/docker-6/blob/main/daemon.json)
-
-root@u-45755:/home/user/Docker# docker run -d -p 127.0.0.1:8893:80 --name rbm-dkr-06-global  nginx:stable
-
-root@u-45755:/home/user/Docker# curl --silent http://127.0.0.1:8893 > /dev/null
-
-root@u-45755:/home/user/Docker# cat /var/lib/docker/containers/1e8a54b49ecb8696d845918a32c55165df7ec0fe6957807b281c938b0fb8eae6/1e8a54b49ecb8696d845918a32c55165df7ec0fe6957807b281c938b0fb8eae6-json.log 
+`` 
+ 
+daemon json file [here](https://github.com/uladzimarkov/docker-6/blob/main/daemon.json) 
+ 
+root@u-45755:/home/user/Docker# docker run -d -p 127.0.0.1:8893:80 --name rbm-dkr-06-global  nginx:stable 
+ 
+root@u-45755:/home/user/Docker# curl --silent http://127.0.0.1:8893 > /dev/null 
+ 
+root@u-45755:/home/user/Docker# cat /var/lib/docker/containers/1e8a54b49ecb8696d845918a32c55165df7ec0fe6957807b281c938b0fb8eae6/1e8a54b49ecb8696d845918a32c55165df7ec0fe6957807b281c938b0fb8eae6-json.log  
 ``
 {"log":"/docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration\n","stream":"stdout","time":"2022-02-02T10:26:39.918059428Z"}
 {"log":"/docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/\n","stream":"stdout","time":"2022-02-02T10:26:39.91808685Z"}
